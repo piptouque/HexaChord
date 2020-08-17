@@ -1,0 +1,110 @@
+
+  22 Populations
+
+Fitch-Margoliash method version 3.69
+
+                  __ __             2
+                  \  \   (Obs - Exp)
+Sum of squares =  /_ /_  ------------
+                                2
+                   i  j      Obs
+
+Negative branch lengths not allowed
+
+
+  +---O. Messiaen Vingt regards 4                                                                         
+  !  
+  !     +------------O. Messiaen Vingt regards 3                                                                         
+  !     !  
+  !     !     +-A. Schoenberg Pierrot lunaire 8                                                                     
+  !     !   +-4 
+  !     !   ! +--A. Schoenberg Pierrot lunaire 21                                                                    
+  !     !   ! 
+  !     !   !           +-------T. Monk Brilliant Corners                                                                           
+  !     !   !           !  
+  !     !   !           !          +---J.-S. Bach BWV 257                                                                                  
+  !     !   !           !       +-14  
+  !  +-17   !        +-20       !  !  +J.-S. Bach BWV 329                                                                                  
+  !  !  !   !        !  !       !  +-16  
+  !  !  ! +-3        !  !    +-13     !  +J.-S. Bach BWV 325                                                                                  
+  !  !  ! ! !        !  !    !  !     +-15  
+  !  !  ! ! !        !  !    !  !        +-J.-S. Bach BWV 253                                                                                  
+  !  !  ! ! !    +---9  +---12  !  
+  !  !  ! ! !    !   !       !  +J.-S. Bach BWV 1041                                                                                 
+  !  !  ! ! !    !   !       !  
+  !  !  ! ! !  +-5   !       +-----C. Debussy Preludes_1_1                                                                             
+  !  !  ! ! !  ! !   ! 
+  !  !  ! ! !  ! !   +-C. Corea Eternal Child                                                                              
+  !  !  +-7 !  ! ! 
+ 18--2    ! +--6 +---B. Evans Turnout                                                                                    
+  !  !    !    ! 
+  !  !    !    !   +---C. Debussy L_isle_joyeuse                                                                           
+  !  !    !    +---8 
+  !  !    !        !      +---------------------------C. Debussy Preludes_1_2                                                                             
+  !  !    !        +-----10  
+  !  !    !               +-C. Debussy Epigraphes antiques 2                                                                    
+  !  !    ! 
+  !  !    +A. Schoenberg Pierrot lunaire 5                                                                     
+  !  ! 
+  !  !  +random 3-chords                                                                                     
+  !  +-19  
+  !     !  +---C. Debussy Preludes_1_3                                                                             
+  !     +-11  
+  !        ! +---A. Schoenberg Pierrot lunaire 10                                                                    
+  !        +-1 
+  !          +-A. Schoenberg Pierrot lunaire 12                                                                    
+  !  
+  +---A. Schoenberg Op33 a                                                                                
+
+
+remember: this is an unrooted tree!
+
+Sum of squares =     5.34592
+
+Average percent standard deviation =    10.78034
+
+Between        And            Length
+-------        ---            ------
+  18          O. Messiaen Vingt regards 4                                                                                 0.07331
+  18             2              0.05421
+   2            17              0.01708
+  17          O. Messiaen Vingt regards 3                                                                                 0.20498
+  17             7              0.01012
+   7             3              0.02562
+   3             4              0.01296
+   4          A. Schoenberg Pierrot lunaire 8                                                                             0.02571
+   4          A. Schoenberg Pierrot lunaire 21                                                                            0.04360
+   3             6              0.04329
+   6             5              0.03718
+   5             9              0.05817
+   9            20              0.02244
+  20          T. Monk Brilliant Corners                                                                                   0.13243
+  20            12              0.07903
+  12            13              0.05389
+  13            14              0.03200
+  14          J.-S. Bach BWV 257                                                                                          0.06087
+  14            16              0.04299
+  16          J.-S. Bach BWV 329                                                                                          0.01897
+  16            15              0.05007
+  15          J.-S. Bach BWV 325                                                                                          0.01854
+  15          J.-S. Bach BWV 253                                                                                          0.03689
+  13          J.-S. Bach BWV 1041                                                                                         0.02166
+  12          C. Debussy Preludes_1_1                                                                                     0.10439
+   9          C. Corea Eternal Child                                                                                      0.03139
+   5          B. Evans Turnout                                                                                            0.06407
+   6             8              0.06506
+   8          C. Debussy L_isle_joyeuse                                                                                   0.06404
+   8            10              0.12622
+  10          C. Debussy Preludes_1_2                                                                                     0.45140
+  10          C. Debussy Epigraphes antiques 2                                                                            0.02582
+   7          A. Schoenberg Pierrot lunaire 5                                                                             0.01851
+   2            19              0.00789
+  19          random 3-chords                                                                                             0.02364
+  19            11              0.02413
+  11          C. Debussy Preludes_1_3                                                                                     0.06927
+  11             1              0.03638
+   1          A. Schoenberg Pierrot lunaire 10                                                                            0.06254
+   1          A. Schoenberg Pierrot lunaire 12                                                                            0.02596
+  18          A. Schoenberg Op33 a                                                                                        0.06323
+
+

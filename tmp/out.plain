@@ -1,0 +1,34 @@
+graph 1 4.1648 5.3786
+node 0 0.25 5.1286 0.5 0.5 "K[1,1,10]" filled circle black lightgrey
+node 1 0.88982 4.3238 0.5 0.5 "K[1,2,9]" filled circle black lightgrey
+node 2 1.791 3.7996 0.5 0.5 "K[1,3,8]" filled circle black lightgrey
+node 3 2.7476 3.3749 0.5 0.5 "K[1,4,7]" filled circle black lightgrey
+node 4 3.7137 3.0378 0.5 0.5 "K[1,5,6]" filled circle black lightgrey
+node 5 0.9779 3.268 0.5 0.5 "K[2,2,8]" filled circle black lightgrey
+node 6 1.9346 2.7537 0.5 0.5 "K[2,3,7]" filled circle black lightgrey
+node 7 2.932 2.3314 0.5 0.5 "K[2,4,6]" filled circle black lightgrey
+node 8 3.9148 2.017 0.5 0.5 "K[2,5,5]" filled circle black lightgrey
+node 9 2.1431 1.7119 0.5 0.5 "K[3,3,6]" filled circle black lightgrey
+node 10 3.1381 1.2922 0.5 0.5 "K[3,4,5]" filled circle black lightgrey
+node 11 3.3594 0.25 0.5 0.5 "K[4,4,4]" filled circle black lightgrey
+edge 0 1 4 0.40816 4.9297 0.50733 4.8049 0.63466 4.6447 0.73348 4.5204 solid black
+edge 1 2 4 1.108 4.1969 1.2497 4.1145 1.4336 4.0075 1.5749 3.9254 solid black
+edge 2 6 4 1.8251 3.5518 1.8478 3.3862 1.8776 3.1693 1.9004 3.0034 solid black
+edge 3 4 4 2.9864 3.2915 3.1362 3.2393 3.3284 3.1722 3.4777 3.1202 solid black
+edge 3 7 4 2.7913 3.1276 2.8205 2.9624 2.8587 2.746 2.8879 2.5805 solid black
+edge 3 6 4 2.5467 3.2213 2.4225 3.1265 2.2637 3.0051 2.1389 2.9098 solid black
+edge 3 2 4 2.5161 3.4777 2.3657 3.5445 2.1704 3.6312 2.0205 3.6978 solid black
+edge 4 8 4 3.7624 2.7907 3.7938 2.6314 3.8345 2.4249 3.8659 2.2653 solid black
+edge 4 7 4 3.5245 2.8668 3.4016 2.7557 3.242 2.6116 3.1195 2.5008 solid black
+edge 5 6 4 1.1998 3.1487 1.3544 3.0656 1.5596 2.9553 1.714 2.8723 solid black
+edge 5 1 4 0.95703 3.5182 0.94309 3.6853 0.92482 3.9042 0.91085 4.0717 solid black
+edge 5 2 4 1.1873 3.4049 1.3078 3.4837 1.4587 3.5823 1.5795 3.6613 solid black
+edge 6 7 4 2.166 2.6557 2.3248 2.5885 2.535 2.4995 2.695 2.4317 solid black
+edge 7 8 4 3.1749 2.2537 3.3273 2.2049 3.5229 2.1424 3.6747 2.0938 solid black
+edge 9 6 4 2.0937 1.9588 2.0607 2.1237 2.0175 2.3397 1.9844 2.505 solid black
+edge 9 7 4 2.3422 1.8682 2.4609 1.9614 2.6111 2.0794 2.7302 2.173 solid black
+edge 10 8 4 3.3221 1.4639 3.4442 1.5778 3.6038 1.7267 3.7267 1.8414 solid black
+edge 10 7 4 3.0892 1.5384 3.0566 1.7029 3.0139 1.9184 2.9812 2.0833 solid black
+edge 10 9 4 2.9073 1.3895 2.7489 1.4564 2.5392 1.5448 2.3796 1.6122 solid black
+edge 10 11 4 3.1905 1.0452 3.2258 0.87905 3.2721 0.66096 3.3073 0.4952 solid black
+stop
