@@ -6,7 +6,7 @@ The whole project can be built with the software `ant`. Just run the command `an
 
 # Run
 
-Once the project has been built, do the following :
+Once the project has been built, do the following from the `hexachord` directory:
 
 1. get the path of Java used by your computer by running the command `which java` in a terminal
 2. in the file `run_HexaChord.sh` change the expression `/usr/bin/java` by the path you got (if different)
