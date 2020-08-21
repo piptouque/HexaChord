@@ -6,4 +6,9 @@ The whole project can be built with the software `ant`. Just run the command `an
 
 # Run
 
-Once the project has been built, simply run the command `./run_HexaChord.sh`. You might have to give exec rights to the script (`chmod +x run_HexaChord.sh`) and also edit the path to Java.
+Once the project has been built, do the following :
+
+1. get the path of Java used by your computer by running the command `which java` in a terminal
+2. in the file `run_HexaChord.sh` change the expression `/usr/bin/java` by the path you got (if different)
+3. give execution rights to the script `run_HexaChord.sh` by running `chmod +x run_HexaChord.sh`
+4. run the command `./run_HexaChord.sh`
