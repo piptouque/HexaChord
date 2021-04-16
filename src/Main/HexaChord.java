@@ -87,6 +87,8 @@ import jdk.nashorn.internal.ir.annotations.Ignore;
 
 public class HexaChord implements KeyListener, ComponentListener, ActionListener, ChangeListener {
 	
+	private static Boolean export_in_out_dir = false; // mettre à true pour écrire les midi dans le dossier out. Non compatible avec HexaChord.app
+	
 	private static final int N_TRANSLATION = 0;
 	private static final int NE_TRANSLATION = 0;
 	private static final int ROTATION = 0;
@@ -744,7 +746,7 @@ public class HexaChord implements KeyListener, ComponentListener, ActionListener
 //			}
 //			break;
 		case KeyEvent.VK_S:
-			_midi_file_player.export_sequence_as_midi();
+			_midi_file_player.export_sequence_as_midi(export_in_out_dir);
 			break;
 		case KeyEvent.VK_N:
 			_parameters.switch_draw_subgrid();
@@ -898,7 +900,7 @@ public class HexaChord implements KeyListener, ComponentListener, ActionListener
 				Sequence tmp = _midi_file_player.get_sequence();
 				post_record_sequence_scaling(tmp);
 				MidiParser.stream_generator_thread(_midi_file_player.get_sequence(), _sustain_ON,0);
-				_midi_file_player.export_sequence_as_midi();
+				_midi_file_player.export_sequence_as_midi(export_in_out_dir);
 				_midi_file_player.connect_playback_transmitter(get_note_receiver());
 				
 			} else {
@@ -1221,6 +1223,20 @@ public class HexaChord implements KeyListener, ComponentListener, ActionListener
             	exit();
             }
         }
+	}
+	
+	public File open_file_save_window(JFileChooser file_chooser){
+		stop_processing();
+		File file = null;
+		if (file_chooser.showSaveDialog(_infoBox) == JFileChooser.APPROVE_OPTION) {
+            file = file_chooser.getSelectedFile();
+			System.out.println("Save as file: "+file.getName()+".\n");
+        } else {        	
+            if(get_midi_file_player().get_sequencer() == null){
+            	exit();
+            }
+        }
+		return file;
 	}
 	
 	public void play_pause_processing(){

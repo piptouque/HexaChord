@@ -165,8 +165,11 @@ public class InfoBox extends JFrame implements KeyListener,PosPitchSetStreamList
         _play_but = new JButton("play");
         _stop_but = new JButton("stop");
         _record_but = new JButton("record");
-        _load_demo_file_but = new JButton("demo file");
         _load_user_file_but = new JButton("user file");
+        Font newButtonFont=new Font(_load_user_file_but.getFont().getName(),Font.BOLD,_load_user_file_but.getFont().getSize());
+        _load_user_file_but.setFont(newButtonFont);
+        _load_demo_file_but = new JButton("demo file");
+        _load_demo_file_but.setFont(newButtonFont);
         _midi_file_mode_but = new JRadioButton("midi file");
     	_KB_mode_but = new JRadioButton("ext keyboard");
     	ButtonGroup group = new ButtonGroup();
@@ -339,7 +342,7 @@ public class InfoBox extends JFrame implements KeyListener,PosPitchSetStreamList
         c.ipady++;
         _jpanel.add(new JSeparator(SwingConstants.HORIZONTAL),c);
         c.gridy+=2;
-        JLabel vertComp = new JLabel("Vertical compactness",JLabel.CENTER);
+        JLabel vertComp = new JLabel("Trajectory compactness",JLabel.CENTER);
         vertComp.setFont(new Font("Arial", Font.PLAIN, 14));
         _jpanel.add(vertComp,c);
 

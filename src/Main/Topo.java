@@ -274,7 +274,7 @@ public class Topo {
 			PitchClassMappingTree pc_mapping_tree = new PitchClassMappingTree(stream.keySet(),mapping);
 			TransformedSequence new_sequence = TransformedSequence.transforme_with_pc_mapping(get_sequence(index_transformed),pc_mapping_tree,trans_name);
 			_midi_file_player.set_sequence_in_sequencer(new_sequence,trans_name);
-			_midi_file_player.export_sequence_as_midi();
+			_midi_file_player.export_sequence_as_midi(false);
 			i++;
 		}
 	}

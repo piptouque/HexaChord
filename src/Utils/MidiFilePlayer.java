@@ -13,6 +13,7 @@ import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 import javax.sound.midi.Track;
 import javax.sound.midi.Transmitter;
+import javax.swing.JFileChooser;
 
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Receiver;
 
@@ -285,16 +286,16 @@ public class MidiFilePlayer {
 		return _sequence;
 	}
     
-	public void export_sequence_as_midi(){
-		export_sequence_as_midi(_sequence_name);
+	public void export_sequence_as_midi(Boolean export_in_out_dir){
+		export_sequence_as_midi(_sequence_name,export_in_out_dir);
     }
 
-	public void export_sequence_as_midi(String file_name){
-		export_sequence_as_midi(file_name,_sequence);
+	public void export_sequence_as_midi(String file_name, Boolean export_in_out_dir){
+		export_sequence_as_midi(file_name,_sequence,export_in_out_dir);
     }
 	
-	public static void export_sequence_as_midi(String file_name, Sequence sequence){
-		File file = create_new_file(file_name);
+	public static void export_sequence_as_midi(String file_name, Sequence sequence, Boolean export_in_out_dir){
+		File file = create_new_file(file_name,export_in_out_dir);
 		export_sequence_as_midi(file,sequence);
 	}
 
@@ -307,18 +308,24 @@ public class MidiFilePlayer {
 		System.out.println("Midi file exported : "+file.getName());
 	}
 
-	public static File create_new_file(String file_name){
+	public static File create_new_file(String file_name, Boolean out_dir){
 		String pp = null;
-		try {
-			pp = (new File(".")).getCanonicalPath();
-		} catch (IOException e3) {
-			// TODO Auto-generated catch block
-			e3.printStackTrace();
+		File file = null;
+		if (out_dir){
+			try {
+				pp = (new File(".")).getCanonicalPath();
+			} catch (IOException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
+			pp = pp+"/out/midi/"+file_name+"."+"mid";
+			file = new File(pp);
+		} else {
+			JFileChooser jFileChooser = new JFileChooser();
+			jFileChooser.setSelectedFile(new File(file_name+".mid"));
+			file = HexaChord.getInstance().open_file_save_window(jFileChooser);
 		}
 		
-		pp = pp+"/out/midi/"+file_name+"."+"midi";
-
-		File file = new File(pp);
 		try {
 			file.createNewFile();
 		} catch (IOException e1) {
