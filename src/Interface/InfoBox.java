@@ -55,7 +55,8 @@ public class InfoBox extends JFrame implements KeyListener,PosPitchSetStreamList
 	private JLabel _file_name_label;
 	private JLabel _d_chord_jlabel;
 	private JLabel _d_tonnetz_jlabel;
-	public JFileChooser _file_chooser;
+	public JFileChooser _demo_file_chooser;
+	public JFileChooser _user_file_chooser;
 	public JComboBox _complex_box;
 	public JComboBox _chroma_tonnetz_box;
 	public JComboBox _hepta_tonnetz_box;
@@ -70,7 +71,8 @@ public class InfoBox extends JFrame implements KeyListener,PosPitchSetStreamList
 	public JButton _play_but;
 	public JButton _stop_but;
 	public JButton _record_but;
-	public JButton _load_file_but;
+	public JButton _load_demo_file_but;
+	public JButton _load_user_file_but;
 	
 	public JRadioButton _midi_file_mode_but;
 	public JRadioButton _KB_mode_but;
@@ -163,7 +165,8 @@ public class InfoBox extends JFrame implements KeyListener,PosPitchSetStreamList
         _play_but = new JButton("play");
         _stop_but = new JButton("stop");
         _record_but = new JButton("record");
-        _load_file_but = new JButton("select midi file");
+        _load_demo_file_but = new JButton("demo file");
+        _load_user_file_but = new JButton("user file");
         _midi_file_mode_but = new JRadioButton("midi file");
     	_KB_mode_but = new JRadioButton("ext keyboard");
     	ButtonGroup group = new ButtonGroup();
@@ -183,10 +186,10 @@ public class InfoBox extends JFrame implements KeyListener,PosPitchSetStreamList
 		//File dir = new File("/"+pp+"/Midi/");
 		//File dir = new File("/"+pp+"/input_midi_files/");
 		//File dir = new File("/"+pp+"/test/");
-		File dir = new File("/"+pp+"/input_files/");
-		System.out.println("Midi file directory : "+dir);
+		File demo_files_dir = new File("/"+pp+"/input_files/");
+		System.out.println("Midi file directory : "+demo_files_dir);
 		ArrayList<String> file_list = new ArrayList<String>();
-		for (String name : dir.list()) {
+		for (String name : demo_files_dir.list()) {
 			if (FileUtils.is_midi(name)) file_list.add(name);
 		}
 //		String[] file_table = new String[file_list.size()+1];
@@ -194,7 +197,8 @@ public class InfoBox extends JFrame implements KeyListener,PosPitchSetStreamList
 //		for (int i=0;i<file_list.size();i++) file_table[i+1] = file_list.get(i);
 //        _file_box = new JComboBox(file_table);
 //        _file_box.setSelectedIndex(0);
-        _file_chooser = new JFileChooser(dir);
+        _demo_file_chooser = new JFileChooser(demo_files_dir);
+        _user_file_chooser = new JFileChooser();
         c.fill=GridBagConstraints.HORIZONTAL;
         c.gridwidth=4;
         _jpanel.add(new JLabel("Tempo"),c);
@@ -219,9 +223,11 @@ public class InfoBox extends JFrame implements KeyListener,PosPitchSetStreamList
         c.gridx=0;
         c.gridy++;
         
-        _jpanel.add(_load_file_but,c);
-        c.gridx+=2;
         c.gridwidth=1;
+        _jpanel.add(_load_demo_file_but,c);
+        c.gridx+=1;
+        _jpanel.add(_load_user_file_but,c);
+        c.gridx+=1;
         _jpanel.add(_midi_file_mode_but,c);
         _midi_file_mode_but.setSelected(true);
         c.gridx+=1;
@@ -525,7 +531,8 @@ public class InfoBox extends JFrame implements KeyListener,PosPitchSetStreamList
 		_play_but.addActionListener(h);
         _stop_but.addActionListener(h);
         _record_but.addActionListener(h);
-        _load_file_but.addActionListener(h);
+        _load_demo_file_but.addActionListener(h);
+        _load_user_file_but.addActionListener(h);
         _midi_file_mode_but.addActionListener(h);
         _KB_mode_but.addActionListener(h);
         _trace_but.addActionListener(h);

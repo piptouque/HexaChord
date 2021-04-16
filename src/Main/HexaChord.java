@@ -185,7 +185,7 @@ public class HexaChord implements KeyListener, ComponentListener, ActionListener
 		_infoBox.buttons_addActionListener(this);
 		_midi_file_player = MidiFilePlayer.getInstance();
 		
-		open_file_choose_window();
+		open_file_choose_window(_infoBox._demo_file_chooser);
 		
 		
 		
@@ -964,8 +964,12 @@ public class HexaChord implements KeyListener, ComponentListener, ActionListener
 		      
 		}
 
-		if (e.getSource() == _infoBox._load_file_but){
-			open_file_choose_window();
+		if (e.getSource() == _infoBox._load_demo_file_but){
+			open_file_choose_window(_infoBox._demo_file_chooser);
+		}
+
+		if (e.getSource() == _infoBox._load_user_file_but){
+			open_file_choose_window(_infoBox._user_file_chooser);
 		}
 		
 		if (e.getSource() == _infoBox._KB_mode_but && !_external_KB_ON){
@@ -1201,10 +1205,10 @@ public class HexaChord implements KeyListener, ComponentListener, ActionListener
 	}
 	
 	File _hard_file;
-	public void open_file_choose_window(){
+	public void open_file_choose_window(JFileChooser file_chooser){
 		stop_processing();
-		if (_infoBox._file_chooser.showOpenDialog(_infoBox) == JFileChooser.APPROVE_OPTION) {
-            File file = _infoBox._file_chooser.getSelectedFile();
+		if (file_chooser.showOpenDialog(_infoBox) == JFileChooser.APPROVE_OPTION) {
+            File file = file_chooser.getSelectedFile();
             _hard_file = file;
 			System.out.println("Loading "+file.getName()+".\n");
 			file_init(file);
@@ -1310,7 +1314,8 @@ public class HexaChord implements KeyListener, ComponentListener, ActionListener
 		stop_processing();
 		InfoBox.getInstance()._play_but.setEnabled(false);
 		InfoBox.getInstance()._stop_but.setEnabled(false);
-		InfoBox.getInstance()._load_file_but.setEnabled(false);
+		InfoBox.getInstance()._load_demo_file_but.setEnabled(false);
+		InfoBox.getInstance()._load_user_file_but.setEnabled(false);
 		InfoBox.getInstance()._record_but.setEnabled(true);
 		_external_KB_ON=true;
 		set_empty_colStream_KB_mode();
@@ -1346,9 +1351,10 @@ public class HexaChord implements KeyListener, ComponentListener, ActionListener
 		if(MidiDeviceInBox.getInstance().isVisible()) MidiDeviceInBox.getInstance().setVisible(false);
 		InfoBox.getInstance()._play_but.setEnabled(true);
 		InfoBox.getInstance()._stop_but.setEnabled(true);
-		InfoBox.getInstance()._load_file_but.setEnabled(true);
+		InfoBox.getInstance()._load_demo_file_but.setEnabled(true);
+		InfoBox.getInstance()._load_user_file_but.setEnabled(true);
 		InfoBox.getInstance()._record_but.setEnabled(false);
-		open_file_choose_window();
+		open_file_choose_window(_infoBox._demo_file_chooser);
 		
 	}
 	
