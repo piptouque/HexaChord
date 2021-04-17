@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeMap;
 
-import com.sun.javafx.collections.MappingChange;
+//import com.sun.javafx.collections.MappingChange;
 
 public class PitchClassMappingTree extends TreeMap<Long,PitchClassMappingList>{
 
