@@ -27,7 +27,7 @@ import Path.PosSquareGridCoordPath;
 import Path.SquareGridCoordPath;
 import Utils.FramePicture;
 
-public class GridFrame extends JFrame implements KeyListener{
+public class GridFrame extends JFrame implements KeyListener {
 
 	private static final long serialVersionUID = 1L;
 	// Control & view
@@ -35,30 +35,30 @@ public class GridFrame extends JFrame implements KeyListener{
 	private Parameters _parameters;
 	private HexaChord _h;
 	private PlanarUnfoldedTonnetz _tonnetz;
-	
+
 	PosSquareGridCoordPath _pos_path;
-//	private boolean _model_seq = false;
-//	private boolean _midi_seq = false;
+	// private boolean _model_seq = false;
+	// private boolean _midi_seq = false;
 
 	// Control & view
 	private MusicInterviewer1 _m1;
 	private MusicInterviewer2 _m2;
 	private Interviewer3 _m3;
-	
+
 	private boolean _draw_subgrid;
 	private MusicSubgrid _sg;
 	private HexaGridLayer _l2;
 	private HexaGridLayer _l3;
-//	private HexaGridLayer _l4;
-//	private ArrayList<int[]> _current_model_chord_coords;
-	
+	// private HexaGridLayer _l4;
+	// private ArrayList<int[]> _current_model_chord_coords;
+
 	private boolean _real_time_path;
 
 	public GridFrame(PlanarUnfoldedTonnetz t, boolean real_time_path) {
 
 		super("Tonnetz : " + t.toString());
-		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); // libère la mémoire lorsque la fenêtre est fermée
-//		_model_seq = true;
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); // libre la mmoire lorsque la fentre est ferme
+		// _model_seq = true;
 		_tonnetz = t;
 		_parameters = Parameters.getInstance();
 		_h = HexaChord.getInstance();
@@ -66,7 +66,7 @@ public class GridFrame extends JFrame implements KeyListener{
 		JTransformPanel _panel = panel_factory();
 		_panel.add_layer(vertices_layer_factory()); // display vertices
 		_panel.add_layer(edges_layer_factory()); // display edges
-		if (real_time_path){
+		if (real_time_path) {
 			_panel.add_layer(real_time_traj_layer_factory(_parameters.get_colStream())); // display model
 		} else {
 			_pos_path = new PosSquareGridCoordPath(_parameters.get_colStream().compute_tonnetz_coord_path(_tonnetz));
@@ -81,7 +81,7 @@ public class GridFrame extends JFrame implements KeyListener{
 		// First layer: all notes, no edge
 		_m1 = new MusicInterviewer1(_tonnetz);
 		GridLayer l1 = new HexaGridLayer(_p, _m1, 75.f);
-		if (_tonnetz.get_N()-1>(2*_tonnetz.get_directions_count())){
+		if (_tonnetz.get_N() - 1 > (2 * _tonnetz.get_directions_count())) {
 			_sg = new MusicSubgrid(l1, _tonnetz);
 		}
 		return l1;
@@ -101,27 +101,27 @@ public class GridFrame extends JFrame implements KeyListener{
 	private HexaGridLayer real_time_traj_layer_factory(PosPitchSetStream stream) {
 		_m3 = new MusicInterviewer3(_tonnetz, _sg, _m1, stream);
 		if (_draw_subgrid)
-			_l3 = new HexaGridLayer(_p, (MusicInterviewer3)_m3, _sg);
+			_l3 = new HexaGridLayer(_p, (MusicInterviewer3) _m3, _sg);
 		else
-			_l3 = new HexaGridLayer(_p, (MusicInterviewer3)_m3, 75.f);
+			_l3 = new HexaGridLayer(_p, (MusicInterviewer3) _m3, 75.f);
 		return _l3;
 	}
 
 	private HexaGridLayer computed_traj_layer_factory(PosSquareGridCoordPath path) {
-		
-		_m3 = new PathInterviewer(path,_tonnetz);
-		_l3 = new HexaGridLayer(_p, (PathInterviewer)_m3, 75.f);
+
+		_m3 = new PathInterviewer(path, _tonnetz);
+		_l3 = new HexaGridLayer(_p, (PathInterviewer) _m3, 75.f);
 		return _l3;
 	}
 
-//	private HexaGridLayer midiseq_layer_factory() {
-//		_m4 = new MusicInterviewer4(_h, _tonnetz, _sg, _m1, _parameters);
-//		if (_draw_subgrid)
-//			_l4 = new HexaGridLayer(_p, _m4, _sg);
-//		else
-//			_l4 = new HexaGridLayer(_p, _m4, 75.f);
-//		return _l4;
-//	}
+	// private HexaGridLayer midiseq_layer_factory() {
+	// _m4 = new MusicInterviewer4(_h, _tonnetz, _sg, _m1, _parameters);
+	// if (_draw_subgrid)
+	// _l4 = new HexaGridLayer(_p, _m4, _sg);
+	// else
+	// _l4 = new HexaGridLayer(_p, _m4, 75.f);
+	// return _l4;
+	// }
 
 	private JTransformPanel panel_factory() {
 		addWindowListener(new CloseWindowProcessing(this, _tonnetz));
@@ -196,36 +196,36 @@ public class GridFrame extends JFrame implements KeyListener{
 	}
 
 	public void saveFrameAsJepg() {
-		FramePicture.save(this, _tonnetz.toString(),"grid", "png");
+		FramePicture.save(this, _tonnetz.toString(), "grid", "png");
 	}
 
 	// Ne marche pas
 	public void saveFrameAsPdf() {
-		FramePicture.save_as_pdf(this, _tonnetz.toString(),"grid");
+		FramePicture.save_as_pdf(this, _tonnetz.toString(), "grid");
 	}
 
 	public void coords_update() {
-		if (_tonnetz.get_connected_components_count()==1) {
+		if (_tonnetz.get_connected_components_count() == 1) {
 			_m3.coords_update();
 		}
 	}
-	
-	public void subgrid_update(){
+
+	public void subgrid_update() {
 		if (_sg != null)
 			_sg.update();
 	}
-	
-	// met à jour la position dans path lorsqu'un évènement midi est détecté.
-	public void path_pos_update(long key){
+
+	// met jour la position dans path lorsqu'un vnement midi est dtect.
+	public void path_pos_update(long key) {
 		_pos_path.set_current_key(key);
 	}
 
-//	public ArrayList<int[]> get_current_model_chord_coords() {
-//		return _current_model_chord_coords;
-//	}
-	
-	public void init(PosPitchSetStream stream){
-		if (_real_time_path){
+	// public ArrayList<int[]> get_current_model_chord_coords() {
+	// return _current_model_chord_coords;
+	// }
+
+	public void init(PosPitchSetStream stream) {
+		if (_real_time_path) {
 			((MusicInterviewer3) _m3).re_init(stream);
 		} else {
 			_pos_path = new PosSquareGridCoordPath(stream.compute_tonnetz_coord_path(_tonnetz));
@@ -233,21 +233,17 @@ public class GridFrame extends JFrame implements KeyListener{
 		}
 	}
 
-	public void init(SquareGridCoordPath path){
+	public void init(SquareGridCoordPath path) {
 		_pos_path = new PosSquareGridCoordPath(path);
-		//((PathInterviewer) _m3).re_init(_pos_path);
+		// ((PathInterviewer) _m3).re_init(_pos_path);
 	}
 
-//	public void refer_to_path(SquareGridCoordPath tonnetz_coord_path){
-//		_m3.set_tonnetz_coord_path(tonnetz_coord_path);
-//	}
-	
-	public String toString(){
-		return "F"+_tonnetz.toString();
-	}
+	// public void refer_to_path(SquareGridCoordPath tonnetz_coord_path){
+	// _m3.set_tonnetz_coord_path(tonnetz_coord_path);
+	// }
 
+	public String toString() {
+		return "F" + _tonnetz.toString();
+	}
 
 }
-
-	
-
